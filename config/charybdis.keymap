@@ -5,13 +5,13 @@
 #include <dt-bindings/zmk/rgb.h>
 
 &lt {
-    tapping-term-ms = <120>;
+    tapping-term-ms = <110>;
     flavor = "tap-preferred";
     quick-tap-ms = <150>;
 };
 
 &mt {
-    tapping-term-ms = <130>;
+    tapping-term-ms = <110>;
     flavor = "tap-preferred";
 };
 
