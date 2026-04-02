@@ -5,9 +5,14 @@
 #include <dt-bindings/zmk/rgb.h>
 
 &lt {
-    tapping-term-ms = <200>;
-    flavor = "balanced";
+    tapping-term-ms = <120>;
+    flavor = "tap-preferred";
     quick-tap-ms = <150>;
+};
+
+&mt {
+    tapping-term-ms = <130>;
+    flavor = "tap-preferred";
 };
 
 / {
@@ -44,6 +49,41 @@
             bindings = <&mkp LCLK>;
             key-positions = <26 27>;
         };
+
+        mouseright {
+            bindings = <&mkp RCLK>;
+            key-positions = <27 28>;
+        };
+
+        mouseprev {
+            bindings = <&mkp MB4>;
+            key-positions = <23 22>;
+        };
+
+        mousenext {
+            bindings = <&mkp MB5>;
+            key-positions = <22 21>;
+        };
+
+        lralt {
+            bindings = <&kp RIGHT_ALT>;
+            key-positions = <13 12>;
+        };
+
+        rralt {
+            bindings = <&kp LG(RALT)>;
+            key-positions = <16 17>;
+        };
+
+        left {
+            bindings = <&kp LEFT_PARENTHESIS>;
+            key-positions = <3 2>;
+        };
+
+        right {
+            bindings = <&kp RIGHT_PARENTHESIS>;
+            key-positions = <6 7>;
+        };
     };
 
     keymap {
@@ -51,10 +91,10 @@
 
         layer_0 {
             bindings = <
-&kp Q           &kp W           &kp E        &kp R        &kp T        &kp Y      &kp U            &kp I        &kp O           &kp P
-&mt LEFT_WIN A  &mt LEFT_ALT S  &mt LCTRL D  &mt LSHFT F  &kp G        &kp H      &mt LSHFT J      &mt LCTRL K  &mt LEFT_ALT L  &kp SEMI
-&kp Z           &kp X           &kp C        &kp V        &kp B        &kp N      &kp M            &kp COMMA    &kp DOT         &kp FSLH
-                                &mkp MB1     &mkp MB2     &lt 1 ESC    &kp SPACE  &lt 2 BACKSPACE
+&kp Q           &kp W           &kp E        &kp R        &kp T        &kp Y        &kp U            &kp I        &kp O           &kp P
+&mt LEFT_WIN A  &mt LEFT_ALT S  &mt LCTRL D  &mt LSHFT F  &kp G        &kp H        &mt LSHFT J      &mt LCTRL K  &mt LEFT_ALT L  &kp SEMI
+&kp Z           &kp X           &kp C        &kp V        &kp B        &kp N        &kp M            &kp COMMA    &kp DOT         &kp FSLH
+                                &lt 5 ESC    &lt 4 SPACE  &lt 3 TAB    &lt 2 ENTER  &lt 1 BACKSPACE
             >;
         };
 
@@ -67,7 +107,7 @@
             >;
         };
 
-        layer_2 {
+        sym {
             bindings = <
 &kp LEFT_BRACE  &kp AMPERSAND    &kp ASTERISK       &kp LEFT_PARENTHESIS  &kp RIGHT_BRACE    &none  &none  &none  &none  &none
 &none           &kp DOLLAR       &kp UP_ARROW       &kp CARET             &kp EQUAL          &none  &none  &none  &none  &none
@@ -76,12 +116,30 @@
             >;
         };
 
-        layer_3 {
+        arr {
             bindings = <
-&none  &none  &none  &none  &none    &none       &none         &none         &none         &none
-&none  &none  &none  &none  &none    &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3
-&none  &none  &none  &none  &none    &none       &none         &none         &none         &none
-              &none  &none  &none    &none       &none
+&trans  &bootloader  &trans  &trans  &trans    &trans          &trans          &trans        &bootloader      &trans
+&trans  &trans       &trans  &trans  &trans    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
+&trans  &trans       &trans  &trans  &trans    &trans          &trans          &trans        &trans           &trans
+                     &trans  &trans  &trans    &trans          &trans
+            >;
+        };
+
+        fun {
+            bindings = <
+&none           &none         &none         &none         &none           &kp F12  &kp F7  &kp F8  &kp F9  &none
+&bt BT_CLR_ALL  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3    &kp F11  &kp F4  &kp F5  &kp F6  &none
+&none           &none         &none         &none         &none           &kp F10  &kp F1  &kp F2  &kp F3  &none
+                              &none         &none         &none           &none    &none
+            >;
+        };
+
+        med {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans    &trans            &trans             &trans           &trans      &trans
+&trans  &trans  &trans  &trans  &trans    &kp K_PREV        &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp K_NEXT  &trans
+&trans  &trans  &trans  &trans  &trans    &trans            &trans             &trans           &trans      &trans
+                &trans  &trans  &trans    &kp K_PLAY_PAUSE  &kp K_MUTE
             >;
         };
 
