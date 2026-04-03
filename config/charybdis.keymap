@@ -125,6 +125,7 @@
 &trans  &trans       &trans  &trans  &trans    &trans          &trans          &trans        &trans           &trans
                      &trans  &trans  &trans    &trans          &trans
             >;
+                trackball-bindings = <&tsl>;
         };
 
         fun {
